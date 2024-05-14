@@ -1,4 +1,4 @@
-## Functions for evaluation
+## Functions for evaluation by Schulz and Lerch (2022)
 
 #### Coverage ####
 # Calculate coverage of a prediction interval of a probabilistic forecast
