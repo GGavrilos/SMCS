@@ -1,5 +1,6 @@
 #-------------------------------------------------------------------------------
-# Adjusting 
+## Adjusting by the closure principle (see Section 5 in Vovk and Wang (2021)) ##
+#-------------------------------------------------------------------------------
 adj = function(e){#vector input
   K = length(e)
   e_sorted = sort(e)
@@ -9,7 +10,7 @@ adj = function(e){#vector input
   for ( i in 1:K){
     e_adj[order_e[i]]= min(((e_sorted[i]+S)/(1+(1:K)))[1:(i-1)])
   }
-  return(e_adj)
+  return(e_adj) #vector output
 }
 
 matrix_adj=function(E){#matrix input
@@ -21,11 +22,11 @@ matrix_adj=function(E){#matrix input
     E_adj=c(E_adj,0,e_adj[(1+(i-1)*m):(i*m)])
   }
   E_adj= matrix(c(E_adj,0),nrow = m)
-  return(E_adj)
+  return(E_adj) #matrix output
 }
 
 matrix_merg = function(E){#matrix input
   m = dim(E)[1]
   e = as.vector(E)[-(1+(m+1)*(0:(m-1)))]# erase the diagonal elements
-  return(mean(e))
+  return(mean(e)) #numeric output
   }

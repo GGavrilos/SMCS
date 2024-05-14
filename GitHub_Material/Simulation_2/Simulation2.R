@@ -3,26 +3,24 @@
 ################################################################################
 
 #-------------------------------------------------------------------------------
-# load environment variables and packages
-sim <- as.integer(Sys.getenv("SLURM_ARRAY_TASK_ID"))
-set.seed(sim)
-
+# set seed and load packages and functions
+sim = 1 # load as environment variable for multiple runs
+set.seed(sim) 
 library(MASS)
 library(scoringRules)
 source("Adjusting.R")
 
-
 #-------------------------------------------------------------------------------
 # Set parameters
-alpha = 0.1
-n = 1000
-epsilon = delta = seq(-0.6,0.6,length.out=7)
+alpha = 0.1 # confidence level
+n = 1000 # sample size
+epsilon = delta = seq(-0.6,0.6,length.out=7) # bias and dispersion erros
 parameters = expand.grid(epsilon=epsilon, delta=delta)
 # model number i, corresponds to the i-th row in parameters
 eps = parameters$epsilon
 delta= parameters$delta
 
-ind_sup_model = which((eps==0)&(delta==0)) # indices at which the superior model is
+ind_sup_model = which((eps==0)&(delta==0)) # indices of the superior model 
 
 #-------------------------------------------------------------------------------
 # Simulate data
@@ -34,7 +32,7 @@ for (i in 2:n){
 
 #-------------------------------------------------------------------------------
 # Prepare objects to store
-m = dim(parameters)[1]
+m = dim(parameters)[1] # number of models 
 L = matrix(NA,nrow=n,ncol=m) # to store the losses
 means= c(0,y[1:(n-1)]) # true means
 
@@ -81,7 +79,7 @@ for (i in 1:m){
 }
 
 #-------------------------------------------------------------------------------
-# Transformation to make them uniformly bounded
+# Transformation to make loss-differences uniformly bounded
 for (i in (1:n)[-tt]){
   d[,,i]=d[,,i]/c1
 }
@@ -97,7 +95,7 @@ psi_E_c = (-log(1-C*lambda)-C*lambda)/C^2
 
 #-------------------------------------------------------------------------------
 # Pairwise e-processes
-Delta_hat= V =E=array(0, c(m,m,n)) 
+Delta_hat=V=E=array(0, c(m,m,n)) 
 #' arrays to store the accumulated losses, the variance processes and the e-processes
 
 for (i in 1:m){
@@ -116,12 +114,12 @@ EE[i,]= colMeans(E[i,-i,])
 }
 E_adj=apply(EE,2,adj)
 #-------------------------------------------------------------------------------
-# Compute model confidence sets
+# Compute SMCSs
 MCS = rep(list(integer(0)),n)
 names(MCS) = paste0("t=",1:n)
 MCS[[1]]=1:m
-freq = data.frame(matrix(NA,nrow=1,ncol=n))
-size = data.frame(matrix(NA,nrow=1,ncol=n))
+freq = data.frame(matrix(NA,nrow=1,ncol=n)) #coverage freq. of the superior object
+size = data.frame(matrix(NA,nrow=1,ncol=n)) #size of the SMCS
 colnames(freq)=colnames(size)= paste0("t=",1:n)
 size[1]=49
 freq[1]=1
