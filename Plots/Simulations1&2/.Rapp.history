@@ -1,0 +1,4 @@
+load("/Users/sebastianarnold/Desktop/EMCS/Plots_paper/Simulations1&2/sim2.rda")
+load("/Users/sebastianarnold/Desktop/EMCS/Plots_paper/Simulations1&2/sim1.rda")
+load("/Users/sebastianarnold/Dropbox/GitHub/Plots/Simulations1&2/sim1_size_e_summarized.rda")
+load("/Users/ggavrilopoul/Library/CloudStorage/Dropbox/GitHub_Sebastian/Plots/Simulations1&2/sim1_size_e_summarized.rda")
