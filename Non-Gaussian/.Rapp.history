@@ -1,6 +1,0 @@
-load("/Users/ggavrilopoul/polybox - Georgios Gavrilopoulos (georgios.gavrilopoulos@stat.math.ethz.ch)@polybox.ethz.ch/PhD/Projects/SMCS/RCode/Simulation_1/SMSC, Cluster/smcs.rda")
-load("/Users/ggavrilopoul/polybox - Georgios Gavrilopoulos (georgios.gavrilopoulos@stat.math.ethz.ch)@polybox.ethz.ch/PhD/Projects/SMCS/RCode/Simulation_1/Sim1_Sebastian/freq_p_summarized.rda")
-load("/Users/ggavrilopoul/polybox - Georgios Gavrilopoulos (georgios.gavrilopoulos@stat.math.ethz.ch)@polybox.ethz.ch/PhD/Projects/SMCS/RCode/Simulation_1/Sim1_Sebastian/freq_e_summarized.rda")
-load("/Users/ggavrilopoul/polybox - Georgios Gavrilopoulos (georgios.gavrilopoulos@stat.math.ethz.ch)@polybox.ethz.ch/PhD/Projects/SMCS/RCode/Simulation_1/Sim1_Sebastian/sim1_freq_e_summarized.rda")
-load("/Users/ggavrilopoul/polybox - Georgios Gavrilopoulos (georgios.gavrilopoulos@stat.math.ethz.ch)@polybox.ethz.ch/PhD/Projects/SMCS/RCode/Simulation_1/Sim1_Sebastian/sim1_size_p_summarized.rda")
-load("/Users/ggavrilopoul/polybox - Georgios Gavrilopoulos (georgios.gavrilopoulos@stat.math.ethz.ch)@polybox.ethz.ch/PhD/Projects/SMCS/RCode/Simulation_1/Sim1_Sebastian/sim1_size_e_summarized.rda")
